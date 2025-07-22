@@ -25,7 +25,7 @@ const Navbar = () => {
           {/*left section */}
           <div className='flex items-center gap-4 md:gap-16'>
                <Link to="/">
-                  <HiOutlineBars3CenterLeft className='w-6 h-6'/>
+                  <HiOutlineBars3CenterLeft className='w-6 h-6 focus:outline-none'/>
                </Link>
                {/*search input*/}
                <div className='relative w-40 sm:w-72 space-x-2'>
