@@ -6,6 +6,7 @@ import { FaRegUser } from "react-icons/fa6";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { BsCart3 } from "react-icons/bs";
 import avatarImg from "../assets/avatar.png";
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
    const [IsdropdownOpen,setIsdropdownOpen] = useState(false);
@@ -17,7 +18,8 @@ const Navbar = () => {
       {name:'Cart page',href:'/cart'},
       {name:'Check out',href:'/checkout'}
    ]
-
+ 
+   const cartItem = useSelector((state)=> state.cart.cartItem);
    const currentuser=false;
     return(
      <header className='max-w-screen-2xl mx-auto px-4 py-6'>
@@ -60,8 +62,11 @@ const Navbar = () => {
             
             <button className='hidden md:block'><IoIosHeartEmpty className='w-6 h-6' /></button>
             <Link to='/cart' className='bg-primary flex items-center rounded-sm p-1 px-2 sm:px-6'>
-               <BsCart3 />
-               <span className='font-semibold text-sm sm:ml-1'>0</span>
+               <BsCart3 />{
+                  (cartItem.length > 0) ? <span className='font-semibold text-sm sm:ml-1'>{cartItem.length}</span>
+                  : <span className='font-semibold text-sm sm:ml-1'>0</span>
+               }
+               
             </Link>
           </div>
         </nav>

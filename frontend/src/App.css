@@ -38,3 +38,30 @@
 .html{
    scroll-behavior: smooth;
 }
+
+.my-swal-confirm {
+  background-color: #3085d6 !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  border-radius: 4px;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+}
+
+.my-swal-cancel {
+  background-color: #d33 !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  border-radius: 4px;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+}
+
+
+
