@@ -20,7 +20,7 @@ reducers :{
                 title: "Product added to the cart",
                 showConfirmButton: false,
                 timer: 1500
-});
+            });
         }
         else {
             Swal.fire({
@@ -34,7 +34,7 @@ reducers :{
                         confirmButton: 'my-swal-confirm',
                         cancelButton: 'my-swal-cancel',
   }
-});
+            });
      }
     },
 
