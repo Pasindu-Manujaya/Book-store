@@ -9,15 +9,10 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Navigation } from 'swiper/modules';
+import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi';
 
 const Recommended = () => {
-    const[books,setbooks]=useState([]);
-      
-    
-     useEffect(()=>{
-        fetch("Books.json").then(res=>res.json())
-        .then((data)=>setbooks(data))
-        },[])
+    const {data:books=[]} = useFetchAllBooksQuery();
 
   return (
     <div className='py-16'>

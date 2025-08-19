@@ -10,18 +10,18 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { Navigation } from 'swiper/modules';
+import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi';
+import { legacy_createStore } from '@reduxjs/toolkit';
 
 const catagories=["Choose a genre","Business","Fiction","Horror","Adventure"];
 
 const BookSeller = () => {
-  const[books,setbooks]=useState([]);
+  
   const[selectedCategory,setSelectedCategory]=useState("Choose a genre");
 
-  useEffect(()=>{
-    fetch("Books.json").then(res=>res.json())
-    .then((data)=>setbooks(data))
-    },[])
-    
+  const {data:books=[]} = useFetchAllBooksQuery();
+  
+ 
     
 
     const filteredBooks = selectedCategory === "Choose a genre" ? books : books.filter(book => 

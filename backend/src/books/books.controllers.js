@@ -30,7 +30,7 @@ const getSingleBook =async (req,res)=>{
         const {id}= req.params;
         const book=await Book.findById(id);
         if(!book){
-            res.status(404).send({message: "Book not Found!"})
+          return  res.status(404).send({message: "Book not Found!"})
         }
         res.status(200).send(book);
     } catch (error) {
@@ -38,4 +38,30 @@ const getSingleBook =async (req,res)=>{
     }
 }
 
-module.exports = {postBooks,getBooks,getSingleBook};
+const updateBook =async (req,res)=>{
+    try {
+        const {id} = req.params;
+        const updatedBook=await  Book.findByIdAndUpdate(id,req.body,{new: true});
+        if(!updatedBook){
+            return res.status(404).send({message: "Book not Found!"})
+        }
+        res.status(200).send(updatedBook);
+    } catch (error) {
+         res.status(500).send({message:'Failed to update book'})
+    }
+}
+
+const deleteBook =async (req,res)=>{
+    try {
+        const {id} = req.params;
+        const deletedBook=await  Book.findByIdAndDelete(id);
+        if(!deletedBook){
+            return res.status(404).send({message: "Book not Found!"})
+        }
+        res.status(200).send({message:'book deleted successfully',book:deletedBook});
+    } catch (error) {
+          res.status(500).send({message:'Failed to delete book'})
+    }
+}
+
+module.exports = {postBooks,getBooks,getSingleBook,updateBook,deleteBook};
